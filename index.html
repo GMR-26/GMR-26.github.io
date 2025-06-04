@@ -5,10 +5,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Greena Maria Rajan - Portfolio</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
 </head>
+
 <body>
+<section class="hero">
+  <h2>Hello, I'm Greena 👋</h2>
+  <p>I’m a passionate Computer Science student who loves building useful tools with code.</p>
+</section>
+<nav class="navbar">
+  <ul>
+    <li><a href="#about">About Me</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#internships">Internships</a></li>
+    <li><a href="#certificates">Certificates</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#activities">Activities</a></li>
+  </ul>
+</nav>
 
 <header>
+  <img src="assets/profile.jpg" alt="Greena Maria Rajan" class="profile-img" />
   <h1>Greena Maria Rajan</h1>
   <p>greenamaria123456@gmail.com | +91 9946332526</p>
   <p>
@@ -17,13 +38,13 @@
   </p>
 </header>
 
-<section>
-  <h2>About Me</h2>
+<section id="about" data-aos="fade-up">
+  <h2 class="section-heading">About Me</h2>
   <p>Enthusiastic and detail-oriented Computer Science student with a strong foundation in programming, machine learning, and system design. Skilled in developing scalable tools and applications, with experience in computer networking. Passionate about solving real-world problems through technology and eager to contribute to dynamic teams while continuing to learn and grow.</p>
 </section>
 
-<section>
-  <h2>Education</h2>
+<section id="education" data-aos="fade-up">
+  <h2 class="section-heading">Education</h2>
   <ul>
     <li><strong>B.Tech in Computer Science and Engineering</strong><br />
         Adi Shankara Institute of Engineering and Technology<br />
@@ -43,8 +64,8 @@
   </ul>
 </section>
 
-<section>
-  <h2>Projects</h2>
+<section id="projects" data-aos="fade-up">
+  <h2 class="section-heading">Projects</h2>
   <ul>
     <li>
       <strong>AI-Powered Speech Analysis Tool for Speech Therapists</strong> (Jan 2025 – Mar 2025)<br />
@@ -57,8 +78,8 @@
   </ul>
 </section>
 
-<section>
-  <h2>Internships</h2>
+<section id="internships" data-aos="fade-up">
+  <h2 class="section-heading">Internships</h2>
   <ul>
     <li>
       <strong>Python Development Intern</strong> – Zoople Technologies, Kochi (July 2024)<br />
@@ -71,18 +92,39 @@
   </ul>
 </section>
 
-<section>
-  <h2>Certificates</h2>
-  <ul class="certificates-list">
-    <li>Wheeled Mobile Robots - NPTEL</li>
-    <li>Foundations on UX Design - Google, Coursera</li>
-    <li>Start the UX Design Process - Google Coursera</li>
-    <li>Introduction to Artificial Intelligence</li>
-  </ul>
+<section id="certificates" data-aos="fade-up">
+  <h2 class="section-heading">Certificates</h2>
+  <div class="swiper">
+    <div class="swiper-wrapper">
+
+      <div class="swiper-slide">
+        <p><strong>Wheeled Mobile Robots</strong><br>NPTEL</p>
+      </div>
+
+      <div class="swiper-slide">
+        <p><strong>Foundations on UX Design</strong><br>Google, Coursera</p>
+      </div>
+
+      <div class="swiper-slide">
+        <p><strong>Start the UX Design Process</strong><br>Google Coursera</p>
+      </div>
+
+      <div class="swiper-slide">
+        <p><strong>Introduction to Artificial Intelligence</strong><br>Infosys Springboard</p>
+      </div>
+
+    </div>
+
+    <!-- Navigation buttons and pagination -->
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-pagination"></div>
+  </div>
 </section>
 
-<section>
-  <h2>Skills</h2>
+
+<section id="skills" data-aos="fade-up">
+  <h2 class="section-heading">Skills</h2>
   <ul class="skills-list">
     <li>Python, C, C++, Java</li>
     <li>HTML, CSS, JavaScript, Django</li>
@@ -93,11 +135,69 @@
   </ul>
 </section>
 
-<section>
-  <h2>Leadership & Activities</h2>
-  <p><strong>Co-Program Lead, Game Development Club – ASIET</strong> (Oct 2023 – Present)<br />
+<section id="activities" data-aos="fade-up">
+  <h2 class="section-heading">Leadership & Activities</h2>
+  <p><strong>Co-Program Lead, Game Development Club – ASIET</strong> (Nov 2023 – March 2025)<br />
     Organized workshops (e.g., Unity) and technical activities promoting game development skills.</p>
 </section>
+
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+  const swiper = new Swiper(".swiper", {
+    loop: true,
+    autoplay: {
+      delay: 3000,
+    },
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  });
+</script>
+
+<script>
+  document.querySelectorAll('.navbar a').forEach(link => {
+    link.addEventListener('click', function (e) {
+      const targetId = this.getAttribute('href').substring(1);
+      const section = document.getElementById(targetId);
+
+      // Remove highlight class from all h2
+      document.querySelectorAll('h2').forEach(h => h.classList.remove('target-highlight'));
+
+      // Scroll a bit manually (if needed)
+      setTimeout(() => {
+        section.querySelector('h2').classList.add('target-highlight');
+      }, 400);
+    });
+  });
+</script>
+
+<script>
+  document.querySelectorAll('.navbar a').forEach(link => {
+    link.addEventListener('click', function (e) {
+      const targetId = this.getAttribute('href').substring(1);
+      const targetSection = document.getElementById(targetId);
+      const heading = targetSection.querySelector('h2');
+
+      // Remove previous highlights
+      document.querySelectorAll('h2').forEach(h => h.classList.remove('blink-highlight'));
+
+      // Wait for scroll and then highlight
+      setTimeout(() => {
+        heading.classList.add('blink-highlight');
+      }, 400); // Adjust timing if needed
+    });
+  });
+</script>
 
 </body>
 </html>
