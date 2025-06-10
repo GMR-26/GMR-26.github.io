@@ -233,3 +233,18 @@ h2.blink-highlight {
   100% { background-color: transparent; }
 }
 
+a.download-btn {
+  display: inline-block;
+  background-color: #eef0f1;
+  color: rgb(108, 192, 205);
+  padding: 8px 15px;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+a.download-btn:hover {
+  background-color: #c1cecb;
+  color: rgb(7, 7, 7);
+}
+
