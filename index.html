@@ -1697,7 +1697,7 @@
           </div>
 
           <div class="glass-card" data-aos="fade-left">
-            <form class="contact-form" id="contactForm" onsubmit="event.preventDefault(); alert('Thank you! Your message has been sent successfully.');">
+            <form class="contact-form" id="contactForm">
               <div class="form-group">
                 <label for="name">Your Name</label>
                 <input type="text" id="name" class="form-control" placeholder="Enter your full name" required />
@@ -1856,6 +1856,22 @@
         }
       });
     });
+
+    // Contact Form Submit Handler
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+      contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const message = document.getElementById('message').value;
+
+        const subject = encodeURIComponent(`Portfolio Message from ${name}`);
+        const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
+        
+        window.location.href = `mailto:greenamariarajan@gmail.com?subject=${subject}&body=${body}`;
+      });
+    }
   </script>
 </body>
 </html>
